@@ -5,7 +5,7 @@ const app = express.Router() ;
 
 app.get("/dashboard", async(req, res)=>{
   try{
-      let output = await Booking.find();
+      let output = await Booking.find().populate(["flight"]).populate(["user"]);
       res.send(output);
  }
  catch(err){
