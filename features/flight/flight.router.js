@@ -11,7 +11,7 @@ app.post("/", async(req, res)=>{
         res.send(flight);
    }
    catch(err){
-       res.status(500).send(err.message);
+       res.status(201).send(err.message);
    }
 })
 
@@ -22,7 +22,7 @@ app.delete("/:id", async(req, res)=>{
         res.send(flight);
    }
    catch(err){
-       res.status(500).send(err.message);
+       res.status(202).send(err.message);
    }
 })
 
@@ -30,7 +30,7 @@ app.patch("/:id", async (req,res)=>{
     try{
         let id = req.params.id;
         let update = await Flight.updateOne({"_id":id},{$set:{...req.body}});
-        res.status(200).send("Details Updated Successfully!");
+        res.status(204).send("Details Updated Successfully!");
     }
     catch(err){
         res.status(500).send(err.message);
@@ -45,7 +45,7 @@ app.get("/", async(req, res)=>{
         res.send(output);
    }
    catch(err){
-       res.status(500).send(err.message);
+       res.status(200).send(err.message);
    }
 })
 
@@ -57,7 +57,7 @@ app.get("/:id", async(req, res)=>{
         res.send(output);
    }
    catch(err){
-       res.status(500).send(err.message);
+       res.status(200).send(err.message);
    }
 })
 

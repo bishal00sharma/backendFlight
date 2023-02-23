@@ -8,7 +8,7 @@ app.use(express.json()) ;
 app.post("/register", async(req,res) => {
     const { email,password, name} =req.body ;
     const user=  await User.create(req.body);
-    res.send("User created")
+    res.status(201).send("User created")
 })
 
 app.post("/login",async(req,res) =>{
@@ -17,7 +17,7 @@ app.post("/login",async(req,res) =>{
     if(!user){
        return res.send({"error":"Error"} ) ;
     }
-    res.send({"user":user});
+    res.status(201).send({"user":user});
 
 }) 
 

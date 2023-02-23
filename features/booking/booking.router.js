@@ -9,7 +9,7 @@ app.get("/dashboard", async(req, res)=>{
       res.send(output);
  }
  catch(err){
-     res.status(500).send(err);
+     res.status(200).send(err);
  }
 })
 
@@ -21,7 +21,7 @@ app.post("/booking", async(req, res)=>{
         const { userId,flightId } = req.body
 
             let bookingOrder = await Booking.create({user:req.body.userId , flight:req.body.flightId}) ;
-          res.send(bookingOrder);
+          res.status(201).send(bookingOrder);
       
         
        }
