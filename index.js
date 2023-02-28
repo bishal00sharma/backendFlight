@@ -7,6 +7,7 @@ app.use(cors());
 const userRouter = require("./features/user/user.router");
 const flightRouter = require("./features/flight/flight.router");
 const bookingRouter = require("./features/booking/booking.router");
+const productsRouter = require("./features/products/products.router");
 
 
 
@@ -14,6 +15,7 @@ const bookingRouter = require("./features/booking/booking.router");
 app.use("/api",userRouter);
 app.use("/api/flights",flightRouter);
 app.use("/api",bookingRouter);
+app.use("/products",productsRouter);
 
 app.get("/", async(req, res)=>{
     try{
